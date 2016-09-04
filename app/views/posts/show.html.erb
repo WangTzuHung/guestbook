@@ -1,0 +1,16 @@
+<div>
+<%=@post.title%>
+</div>
+<div>
+<%=@post.content%>
+</div>
+
+<% @post.comments.each do |post|%>
+  <div>
+  <p><%= post.content %></p>
+  </div>
+<%end%>
+
+<div></div>
+
+  <%= link_to "back to list page", posts_path%>
