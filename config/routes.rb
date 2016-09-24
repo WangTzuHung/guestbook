@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #resources :users
+  resources :users, only: [:new, :create]
   resources :posts
   #resources :comments
   #resources :categories
@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   root 'posts#index'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  get '/register', to: 'users#new'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
